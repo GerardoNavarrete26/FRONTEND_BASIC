@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Habitaciones</title>
+  <!-- Bootstrap CSS: Incluimos la biblioteca CSS de Bootstrap para diseño y estilos responsivos -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilo para imágenes con el mismo tamaño */
+    .card-img-top {
+      width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+      height: 300px; /* Altura fija para todas las imágenes */
+      object-fit: cover; /* Recorta la imagen si es necesario para mantener las proporciones */
+    }
+    /* Botones personalizados */
+    .btn-edit {
+      background-color: #28a745; /* Verde */
+      color: white;
+    }
+    .btn-edit:hover {
+      background-color: #218838;
+    }
+    .btn-delete {
+      background-color: #dc3545; /* Rojo */
+      color: white;
+    }
+    .btn-delete:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+<!-- Contenedor principal -->
+<div class="container my-4">
+    <h1 class="text-center mb-4">Listado de Habitaciones</h1>
+
+    <!-- Filtros -->
+    <div class="d-flex justify-content-between mb-4">
+      <select id="filterType" class="form-select w-auto">
+        <option value="all">Todos los Tipos</option>
+        <option value="doble">Doble</option>
+        <option value="sencilla">Sencilla</option>
+        <option value="suite">Suite</option>
+      </select>
+      <select id="filterStatus" class="form-select w-auto">
+        <option value="all">Todos los Estados</option>
+        <option value="disponible">Disponible</option>
+        <option value="ocupado">Ocupado</option>
+      </select>
+      <input type="text" id="searchInput" class="form-control w-auto" placeholder="Buscar por número de habitación">
+    </div>
+
+    <!-- Contenido: Tarjetas de Habitaciones -->
+    <div id="roomList" class="row">
+      <!-- Habitación 01 -->
+      <div class="col-md-4 mb-4 room-card" data-type="suite" data-status="ocupado" data-number="01">
+        <div class="card">
+          <img src="Uploads/hab1.jpg" class="card-img-top" alt="Habitación 01">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 01</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Suite<br>
+              <strong>Precio:</strong> $1.200.000 CLP<br>
+              <strong>Estado:</strong> ocupado<br>
+              <strong>Descripción:</strong> Habitación suite premium con jacuzzi
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Habitación 02 -->
+      <div class="col-md-4 mb-4 room-card" data-type="doble" data-status="disponible" data-number="02">
+        <div class="card">
+          <img src="Uploads/hab2.jpg" class="card-img-top" alt="Habitación 02">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 02</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Doble<br>
+              <strong>Precio:</strong> $500.000 CLP<br>
+              <strong>Estado:</strong> disponible<br>
+              <strong>Descripción:</strong> Habitación doble lado de la playa
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Habitación 03 -->
+      <div class="col-md-4 mb-4 room-card" data-type="sencilla" data-status="disponible" data-number="03">
+        <div class="card">
+          <img src="Uploads/hab3.jpg" class="card-img-top" alt="Habitación 03">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 03</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Sencilla<br>
+              <strong>Precio:</strong> $150.000 CLP<br>
+              <strong>Estado:</strong> disponible<br>
+              <strong>Descripción:</strong> Habitación sencilla para 2 personas
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Habitación 04 -->
+      <div class="col-md-4 mb-4 room-card" data-type="suite" data-status="disponible" data-number="04">
+        <div class="card">
+          <img src="Uploads/hab4.jpg" class="card-img-top" alt="Habitación 04">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 04</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Suite<br>
+              <strong>Precio:</strong> $1.000.000 CLP<br>
+              <strong>Estado:</strong> disponible<br>
+              <strong>Descripción:</strong> Habitación lujosa para 4 personas
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Habitación 05 -->
+      <div class="col-md-4 mb-4 room-card" data-type="doble" data-status="ocupado" data-number="05">
+        <div class="card">
+          <img src="Uploads/hab5.jpg" class="card-img-top" alt="Habitación 05">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 05</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Doble<br>
+              <strong>Precio:</strong> $600.000 CLP<br>
+              <strong>Estado:</strong> ocupado<br>
+              <strong>Descripción:</strong> Habitación doble con vista a la ciudad
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Habitación 06 -->
+      <div class="col-md-4 mb-4 room-card" data-type="sencilla" data-status="disponible" data-number="06">
+        <div class="card">
+          <img src="Uploads/hab6.jpg" class="card-img-top" alt="Habitación 06">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 06</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Sencilla<br>
+              <strong>Precio:</strong> $200.000 CLP<br>
+              <strong>Estado:</strong> disponible<br>
+              <strong>Descripción:</strong> Habitación económica para 1 persona
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS: Incluye el soporte JS para componentes de Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JavaScript para manejar los filtros -->
+  <script src="script.js"></script>
+</body>
+</html>
