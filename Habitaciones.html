@@ -28,6 +28,14 @@
     .btn-delete:hover {
       background-color: #c82333;
     }
+        /* Animación para las tarjetas */
+    .room-card .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    }
+    .room-card .card:hover {
+      transform: scale(1.05); /* Pequeño acercamiento */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    }
   </style>
 </head>
 <body>
@@ -47,6 +55,7 @@
         <option value="all">Todos los Estados</option>
         <option value="disponible">Disponible</option>
         <option value="ocupado">Ocupado</option>
+        <option value="pendiente">Pendiente</option>
       </select>
       <input type="text" id="searchInput" class="form-control w-auto" placeholder="Buscar por número de habitación">
     </div>
@@ -55,7 +64,7 @@
     <div id="roomList" class="row">
       <!-- Habitación 01 -->
       <div class="col-md-4 mb-4 room-card" data-type="suite" data-status="ocupado" data-number="01">
-        <div class="card">
+        <div class="card"  onclick="showModal('ocupado')">
           <img src="Uploads/hab1.jpg" class="card-img-top" alt="Habitación 01">
           <div class="card-body">
             <h5 class="card-title">Habitación 01</h5>
@@ -131,7 +140,7 @@
       </div>
       <!-- Habitación 05 -->
       <div class="col-md-4 mb-4 room-card" data-type="doble" data-status="ocupado" data-number="05">
-        <div class="card">
+        <div class="card" onclick="showModal('ocupado')">
           <img src="Uploads/hab5.jpg" class="card-img-top" alt="Habitación 05">
           <div class="card-body">
             <h5 class="card-title">Habitación 05</h5>
@@ -167,8 +176,136 @@
           </div>
         </div>
       </div>
+            <!-- Habitación 07 -->
+      <div class="col-md-4 mb-4 room-card" data-type="suite" data-status="disponible" data-number="07">
+        <div class="card">
+          <img src="Uploads/hab7.jpg" class="card-img-top" alt="Habitación 07">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 07</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Suite<br>
+              <strong>Precio:</strong> $1.500.000 CLP<br>
+              <strong>Estado:</strong> disponible<br>
+              <strong>Descripción:</strong> Habitación suite premium con pizina
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Habitación 08 -->
+      <div class="col-md-4 mb-4 room-card" data-type="sencilla" data-status="ocupado" data-number="08">
+        <div class="card" onclick="showModal('ocupado')">
+          <img src="Uploads/hab8.jpg" class="card-img-top" alt="Habitación 08">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 08</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Suite<br>
+              <strong>Precio:</strong> $530.000 CLP<br>
+              <strong>Estado:</strong> ocupado<br>
+              <strong>Descripción:</strong> Habitación Sencilla cama grande
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Habitación 09 -->
+      <div class="col-md-4 mb-4 room-card" data-type="suite" data-status="ocupado" data-number="09">
+        <div class="card" onclick="showModal('ocupado')">
+          <img src="Uploads/hab9.jpg" class="card-img-top" alt="Habitación 09">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 09</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Suite<br>
+              <strong>Precio:</strong> $1.900.000 CLP<br>
+              <strong>Estado:</strong> ocupado<br>
+              <strong>Descripción:</strong> Habitación suite lujosa presidencial
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Habitación 10 -->
+      <div class="col-md-4 mb-4 room-card" data-type="doble" data-status="pendiente" data-number="10">
+        <div class="card" onclick="showModal('pendiente')">
+          <img src="Uploads/hab10.jpg" class="card-img-top" alt="Habitación 10">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 10</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> Suite<br>
+              <strong>Precio:</strong> $600.000 CLP<br>
+              <strong>Estado:</strong> pendiente<br>
+              <strong>Descripción:</strong> Habitación Doble con vista al mar
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Habitación 11 -->
+      <div class="col-md-4 mb-4 room-card" data-type="doble" data-status="disponible" data-number="11">
+        <div class="card">
+          <img src="Uploads/hab11.jpg" class="card-img-top" alt="Habitación 11">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 11</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> doble<br>
+              <strong>Precio:</strong> $450.000 CLP<br>
+              <strong>Estado:</strong> disponible<br>
+              <strong>Descripción:</strong> Habitación Doble normal
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+            <!-- Habitación 12 -->
+      <div class="col-md-4 mb-4 room-card" data-type="sencilla" data-status="ocupado" data-number="12">
+        <div class="card" onclick="showModal('ocupado')">
+          <img src="Uploads/hab12.jpg" class="card-img-top" alt="Habitación 12">
+          <div class="card-body">
+            <h5 class="card-title">Habitación 12</h5>
+            <p class="card-text">
+              <strong>Tipo:</strong> sencilla<br>
+              <strong>Precio:</strong> $200.000 CLP<br>
+              <strong>Estado:</strong> ocupado<br>
+              <strong>Descripción:</strong> Habitación Sencilla grande
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-edit">Editar</button>
+              <button class="btn btn-delete">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <!-- Modal para mostrar información -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="infoModalLabel">Información de la Habitación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" alt="Detalles de reserva" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
   <!-- Bootstrap JS: Incluye el soporte JS para componentes de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- JavaScript para manejar los filtros -->
