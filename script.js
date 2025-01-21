@@ -102,3 +102,15 @@ if (currentPage === 'Habitaciones.html') {
   if (filterStatus) filterStatus.addEventListener('change', filterRooms);
   if (searchInput) searchInput.addEventListener('keyup', filterRooms);
 }
+
+  // Función para mostrar el modal con la imagen correspondiente
+  function showModal(status) {
+    const modalImage = document.getElementById('modalImage');
+    if (status === 'pendiente') {
+      modalImage.src = 'Uploads/Rpendientepago.png'; // Cambia esta ruta por la imagen para pendientes
+    } else if (status === 'ocupado') {
+      modalImage.src = 'Uploads/Rvigente.png'; // Cambia esta ruta por la imagen para ocupados
+    }
+    const modal = new bootstrap.Modal(document.getElementById('infoModal'));
+    modal.show();
+  }
