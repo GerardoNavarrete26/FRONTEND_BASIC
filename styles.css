@@ -1,5 +1,10 @@
 .header{
     background-color: black;
+    display: flex;
+    position: fixed; /* siempre se mantiene mientras scrolleamos */
+    top: 0; /* Lo posiciona en la parte superior */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    justify-content: space-between;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 100%;
@@ -43,3 +48,6 @@ footer{
     align-items: center;
     justify-content: center;
 }
+  
+
+ 
