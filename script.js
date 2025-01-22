@@ -114,49 +114,7 @@ if (currentPage === 'Habitaciones.html') {
     const modal = new bootstrap.Modal(document.getElementById('infoModal'));
     modal.show();
   }
-//Inicio de sesión 
-const loginForm = document.getElementById('loginForm');
-const errorAlert = document.getElementById('errorAlert');
-const successAlert = document.getElementById('successAlert');
 
-loginForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    errorAlert.style.display = 'none';
-    successAlert.style.display = 'none';
-
-    if (!email) {
-        showError('El correo es requerido.');
-    } else if (!password) {
-        showError('Contraseña es requerida.');
-    } else if (email !== 'user@example.com' || password !== 'password123') {
-        showError('Correo o contraseña invalida.');
-    } else {
-        showSuccess('¡Inicio de sesión éxitoso!');
-    }
-});
-
-function showError(message) {
-    errorAlert.textContent = message;
-    errorAlert.style.display = 'block';
-}
-
-function showSuccess(message) {
-    successAlert.textContent = message;
-    successAlert.style.display = 'block';
-}
-
-function togglePassword() {
-    const passwordField = document.getElementById('password');
-    if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-    } else {
-        passwordField.type = 'password';
-    }
-}
 //Tania JavaScript
 
 const togglePassword = document.getElementById('togglePassword');
