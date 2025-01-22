@@ -1,0 +1,10 @@
+footer{
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    text-align: center;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
