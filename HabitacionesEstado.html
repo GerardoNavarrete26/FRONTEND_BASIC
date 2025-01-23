@@ -43,6 +43,81 @@
       transform: translateY(-10px); /* Mueve la tarjeta hacia arriba */
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Agrega sombra más pronunciada */
     }
+    .sidebar {
+    width: 250px; /* Ancho del sidebar */
+    height: 100vh; /* Altura completa de la ventana */
+    background-color: #000000;
+    padding: 10px;
+    position: fixed; /* Fija el sidebar en el lado izquierdo */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Habilita el desplazamiento si el contenido es largo */
+    z-index: 1000; /* Asegura que el sidebar esté sobre otros elementos */
+}
+
+.sidebar img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.nav-item {
+    list-style: none;
+    margin: 10px 0;
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    background-color: #e9ecef;
+    color: #000000;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: white;
+    background-color: #000;
+    border: inset 0.5px #fff;
+}
+
+/* Estilo para los submenús */
+.submenu {
+    list-style: none;
+    padding: 5px 0 5px 15px; /* Espaciado dentro del submenú */
+    margin: 5px 0 0 0; /* Espaciado entre el submenú y el elemento padre */
+    background-color: #000;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    display: none; /* Oculto por defecto */
+}
+
+.submenu .nav-link {
+    padding: 5px 10px;
+    white-space: nowrap;
+    color: #fff;
+    font-size: 14px;
+}
+
+.submenu .nav-link:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Mostrar submenú al hacer hover */
+.nav-item:hover > .submenu {
+    display: block; /* Muestra el submenú */
+    position: static; /* Hace que el submenú aparezca justo debajo del padre */
+}
   </style>
 </head>
 <body>
@@ -58,6 +133,40 @@
         <p id="desconectarse"> <a href="iniciosesion.html">Desconectarse</a></p>
     </div>
 </header>
+<!-- sidebar -->
+<div class="sidebar">
+  <ul>
+    <img src="Uploads/logo_CHELENKO-copy-White-Final.png" alt="Logo">
+    <li class="nav-item">
+      <a class="nav-link active" href="Reportes.html">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Usuario</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Reserva</a>
+      <!-- Submenú para Reserva -->
+      <ul class="submenu">
+        <li><a class="nav-link" href="Añadir_Reservas.html">Nueva Reserva</a></li>
+        <li><a class="nav-link" href="Lista_Reservas.html">Lista Reservas</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Cabañas</a>
+      <!-- Submenú para Habitación -->
+      <ul class="submenu">
+        <li><a class="nav-link" href="Habitaciones.html">Lista Cabañas</a></li>
+        <li><a class="nav-link" href="HabitacionesEstado.html">Estado Cabañas</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Tinaja</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="iniciosesion.html">Cerrar Sesión</a>
+    </li>
+  </ul>
+</div>
   <!-- Contenedor principal -->
   <div class="content">
     <h1 class="text-center mb-4">Estado de Cabañas</h1>
