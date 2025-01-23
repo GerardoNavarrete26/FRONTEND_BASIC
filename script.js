@@ -129,3 +129,84 @@ togglePassword.addEventListener('click', function () {
     // Cambia el texto del botón
     this.textContent = type === 'password' ? 'Mostrar contraseña' : 'Ocultar contraseña';
 });
+
+// script diego  (Lista de Reservas)
+
+// Función para formatear la fecha en el campo de filtro (YYYY-DD-MM)
+function formatearFecha(input) {
+  let valor = input.value.replace(/\D/g, '');  // Eliminar todo lo que no sea un número
+
+  // Añadimos los guiones de forma automática a medida que se va ingresando la fecha
+  if (valor.length > 4 && valor.length <= 6) {
+      valor = valor.substring(0, 4) + '-' + valor.substring(4);
+  } else if (valor.length > 6) {
+      valor = valor.substring(0, 4) + '-' + valor.substring(4, 6) + '-' + valor.substring(6, 8);
+  }
+
+  input.value = valor;  // Actualizamos el valor del input con la fecha formateada
+  filtrarTabla(); // Llamamos a la función para filtrar la tabla inmediatamente
+}
+
+function filtrarTabla() {
+  var rutFilter = document.getElementById('rutFilter').value.toLowerCase();
+  var estadoFilter = document.getElementById('estadoFilter').value.toLowerCase();
+  var fechaCreacionFilter = document.getElementById('fechaCreacionFilter').value;
+
+  var tabla = document.getElementById("tablaCuerpo");
+  var filas = tabla.getElementsByTagName("tr");
+
+  for (var i = 0; i < filas.length; i++) {
+      var fila = filas[i];
+      var celdas = fila.getElementsByTagName("td");
+
+      if (celdas.length > 0) {
+          var cliente = celdas[0].innerText.toLowerCase();
+          var rut = celdas[1].innerText.toLowerCase();
+          var habitacion = celdas[2].innerText.toLowerCase();
+          var fechaEntrada = celdas[3].innerText;
+          var fechaSalida = celdas[4].innerText;
+          var fechaCreacion = celdas[5].innerText;
+          var estado = celdas[6].innerText.toLowerCase();
+
+          // Filtro por RUT
+          var matchRut = rut.includes(rutFilter);
+
+          // Filtro por Estado
+          var matchEstado = estado.includes(estadoFilter);
+
+          // Filtro por Fecha de Creación
+          var matchFechaCreacion = true;
+          if (fechaCreacionFilter) {
+              // La fecha ingresada ya está en formato YYYY-MM-DD, por lo que no es necesario convertirla
+              var fechaFiltro = fechaCreacionFilter;
+
+              // Comparamos si la fecha de la tabla y la fecha ingresada coinciden
+              matchFechaCreacion = fechaCreacion.startsWith(fechaFiltro);
+          }
+
+          // Mostramos u ocultamos la fila según los filtros aplicados
+          if (matchRut && matchEstado && matchFechaCreacion) {
+              fila.style.display = "";
+          } else {
+              fila.style.display = "none";
+          }
+      }
+  }
+}
+
+function limpiarFiltro() {
+  document.getElementById('rutFilter').value = '';
+  document.getElementById('estadoFilter').value = '';
+  document.getElementById('fechaCreacionFilter').value = '';
+  filtrarTabla(); // Limpiar el filtro
+}
+
+
+
+
+
+
+
+
+
+

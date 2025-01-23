@@ -105,4 +105,54 @@ form .form-group {
     display: inline-block;
 }
 
- 
+ /* Diego */
+
+ .content {
+    margin-top: 110px; /* Espacio debajo del header */
+    margin-left: 250px; /* Espacio para el sidebar */
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 70px); /* Altura mínima dinámica */
+    overflow-y: auto;
+  }
+
+/* Centrar el título */
+.titulo {
+    text-align: center;
+}
+
+/* Estilo para los buscadores en horizontal */
+.buscadores-container {
+    display: flex;
+    gap: 20px; /* Distancia entre los campos */
+    margin-bottom: 20px; /* Espacio debajo de los buscadores */
+    justify-content: center; /* Centrar los campos de búsqueda */
+}
+
+/* Estilo individual para cada buscador */
+.buscador {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar cada campo dentro de su contenedor */
+}
+
+/* Estilo para el botón "Mostrar Todo" */
+.btn-mostrar-todo {
+    background-color: #f0f0f0; /* Gris similar al de las celdas de la tabla */
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centrar el botón */
+    margin-top: 30px; /* Separación del botón de la tabla */
+    margin-bottom: 30px; /* Añadido para separar aún más el botón de la tabla */
+}
+
+/* Aseguramos que el campo de fecha esté alineado correctamente */
+input[type="text"] {
+    width: 150px;
+}
+
+
