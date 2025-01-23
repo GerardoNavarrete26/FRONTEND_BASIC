@@ -89,7 +89,7 @@ form {
 form .text-center {
     margin-top: auto; 
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 
 form .form-group {
@@ -105,6 +105,10 @@ form .form-group {
     display: inline-block;
 }
 
+.link-blanco {
+    color: white; 
+    text-decoration: none;
+}
  /* Diego */
  /* Lista_Reservas */
 
@@ -157,6 +161,7 @@ input[type="text"] {
 }
 
  /* Añadir_Reservas */
+
 
  .form-container {
     background-color: #ffffff;
@@ -216,4 +221,82 @@ input[type="text"] {
     .form-container {
         width: 90%;
     }
+}
+
+
+/* Sidebar */
+.sidebar {
+  width: 250px; /* Ancho del sidebar */
+  height: 100vh; /* Altura completa de la ventana */
+  background-color: #000000;
+  padding: 10px;
+  position: fixed; /* Fija el sidebar en el lado izquierdo */
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Habilita el desplazamiento si el contenido es largo */
+  z-index: 1000; /* Asegura que el sidebar esté sobre otros elementos */
+}
+
+.sidebar img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.nav-item {
+  list-style: none;
+  margin: 10px 0;
+  position: relative;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: #e9ecef;
+  color: #000000;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: white;
+  background-color: #000;
+  border: inset 0.5px #fff;
+}
+
+/* Estilo para los submenús */
+.submenu {
+  list-style: none;
+  padding: 5px 0 5px 15px; /* Espaciado dentro del submenú */
+  margin: 5px 0 0 0; /* Espaciado entre el submenú y el elemento padre */
+  background-color: #000;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  display: none; /* Oculto por defecto */
+}
+
+.submenu .nav-link {
+  padding: 5px 10px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 14px;
+}
+
+.submenu .nav-link:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Mostrar submenú al hacer hover */
+.nav-item:hover > .submenu {
+  display: block; /* Muestra el submenú */
+  position: static; /* Hace que el submenú aparezca justo debajo del padre */
 }
