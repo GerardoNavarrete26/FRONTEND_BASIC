@@ -129,7 +129,7 @@ form .form-group {
 /* Estilo para los buscadores en horizontal */
 .buscadores-container {
     display: flex;
-    gap: 20px; /* Distancia entre los campos */
+    gap: 200px; /* Distancia entre los campos */
     margin-bottom: 20px; /* Espacio debajo de los buscadores */
     justify-content: center; /* Centrar los campos de búsqueda */
 }
@@ -137,52 +137,39 @@ form .form-group {
 /* Estilo individual para cada buscador */
 .buscador {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center; /* Centrar cada campo dentro de su contenedor */
 }
 
-/* Estilo para el botón "Mostrar Todo" */
-.btn-mostrar-todo {
-    background-color: #f0f0f0; /* Gris similar al de las celdas de la tabla */
-    border: 1px solid #ccc;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto; /* Centrar el botón */
-    margin-top: 30px; /* Separación del botón de la tabla */
-    margin-bottom: 30px; /* Añadido para separar aún más el botón de la tabla */
+.buscador label {
+    font-weight: bold;
+    margin-right: 20px; /* Espacio entre el texto y el campo de entrada */
+    white-space: nowrap; /* Evita que el texto se quiebre en varias líneas */
 }
+
+
 
 /* Aseguramos que el campo de fecha esté alineado correctamente */
 input[type="text"] {
-    width: 150px;
+    width: 220px;
 }
 
  /* Añadir_Reservas */
 
-
- .form-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
-}
-
+/* Título del formulario */
 .title {
     text-align: center;
     color: #000000;
 }
 
+/* Etiquetas de los campos del formulario */
 .form-label {
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
 }
 
+/* Campos de entrada y selección */
 .form-input, .form-select {
     width: 100%;
     padding: 10px;
@@ -192,6 +179,7 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
+/* Botones del formulario */
 .form-buttons {
     display: flex;
     justify-content: center;
@@ -216,10 +204,10 @@ input[type="text"] {
     color: white;
 }
 
-/* Responsive adjustments */
+/* Ajustes responsivos */
 @media (max-width: 600px) {
-    .form-container {
-        width: 90%;
+    .content {
+        width: 100%;
     }
 }
 
