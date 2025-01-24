@@ -155,43 +155,49 @@ function filtrarTabla() {
   var tabla = document.getElementById("tablaCuerpo");
   var filas = tabla.getElementsByTagName("tr");
 
-  for (var i = 0; i < filas.length; i++) {
-      var fila = filas[i];
-      var celdas = fila.getElementsByTagName("td");
+  // Si los filtros están vacíos, mostrar todas las filas
+  if (!rutFilter && !estadoFilter && !fechaCreacionFilter) {
+    for (var i = 0; i < filas.length; i++) {
+        filas[i].style.display = ""; // Mostrar todas las filas
+    }
+    return; // Salir de la función sin aplicar filtros
+}
 
-      if (celdas.length > 0) {
-          var cliente = celdas[0].innerText.toLowerCase();
-          var rut = celdas[1].innerText.toLowerCase();
-          var habitacion = celdas[2].innerText.toLowerCase();
-          var fechaEntrada = celdas[3].innerText;
-          var fechaSalida = celdas[4].innerText;
-          var fechaCreacion = celdas[5].innerText;
-          var estado = celdas[6].innerText.toLowerCase();
+// Si no están vacíos, se aplica el filtrado
+for (var i = 0; i < filas.length; i++) {
+    var fila = filas[i];
+    var celdas = fila.getElementsByTagName("td");
 
-          // Filtro por RUT
-          var matchRut = rut.includes(rutFilter);
+    if (celdas.length > 0) {
+        var cliente = celdas[0].innerText.toLowerCase();
+        var rut = celdas[1].innerText.toLowerCase();
+        var habitacion = celdas[2].innerText.toLowerCase();
+        var fechaEntrada = celdas[3].innerText;
+        var fechaSalida = celdas[4].innerText;
+        var fechaCreacion = celdas[5].innerText;
+        var estado = celdas[6].innerText.toLowerCase();
 
-          // Filtro por Estado
-          var matchEstado = estado.includes(estadoFilter);
+        // Filtro por RUT
+        var matchRut = rut.includes(rutFilter);
 
-          // Filtro por Fecha de Creación
-          var matchFechaCreacion = true;
-          if (fechaCreacionFilter) {
-              // La fecha ingresada ya está en formato YYYY-MM-DD, por lo que no es necesario convertirla
-              var fechaFiltro = fechaCreacionFilter;
+        // Filtro por Estado
+        var matchEstado = estado.includes(estadoFilter);
 
-              // Comparamos si la fecha de la tabla y la fecha ingresada coinciden
-              matchFechaCreacion = fechaCreacion.startsWith(fechaFiltro);
-          }
+        // Filtro por Fecha de Creación
+        var matchFechaCreacion = true;
+        if (fechaCreacionFilter) {
+            var fechaFiltro = fechaCreacionFilter;
+            matchFechaCreacion = fechaCreacion.startsWith(fechaFiltro);
+        }
 
-          // Mostramos u ocultamos la fila según los filtros aplicados
-          if (matchRut && matchEstado && matchFechaCreacion) {
-              fila.style.display = "";
-          } else {
-              fila.style.display = "none";
-          }
-      }
-  }
+        // Mostrar u ocultar la fila según los filtros aplicados
+        if (matchRut && matchEstado && matchFechaCreacion) {
+            fila.style.display = "";
+        } else {
+            fila.style.display = "none";
+        }
+    }
+}
 }
 
 function limpiarFiltro() {
@@ -200,6 +206,7 @@ function limpiarFiltro() {
   document.getElementById('fechaCreacionFilter').value = '';
   filtrarTabla(); // Limpiar el filtro
 }
+
 
 
 
