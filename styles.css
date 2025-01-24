@@ -126,32 +126,34 @@ form .form-group {
     text-align: center;
 }
 
-/* Estilo para los buscadores en horizontal */
+/* Ajustes para los filtros en la vista de reservas */
 .buscadores-container {
     display: flex;
-    gap: 200px; /* Distancia entre los campos */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en filas si no caben */
+    gap: 20px; /* Distancia más razonable entre los campos */
     margin-bottom: 20px; /* Espacio debajo de los buscadores */
-    justify-content: center; /* Centrar los campos de búsqueda */
+    justify-content: center; /* Centrar los buscadores */
+    padding: 10px; /* Espaciado interno para los filtros */
+    max-width: 100%; /* Asegura que no se desborde del contenedor */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño */
 }
 
-/* Estilo individual para cada buscador */
+/* Ajustes individuales para cada buscador */
 .buscador {
     display: flex;
-    flex-direction: row;
-    align-items: center; /* Centrar cada campo dentro de su contenedor */
+    flex-direction: column; /* Cambia a una disposición vertical para mayor flexibilidad */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    max-width: 300px; /* Limita el ancho máximo de cada buscador */
 }
 
 .buscador label {
     font-weight: bold;
-    margin-right: 20px; /* Espacio entre el texto y el campo de entrada */
-    white-space: nowrap; /* Evita que el texto se quiebre en varias líneas */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo */
 }
 
-
-
-/* Aseguramos que el campo de fecha esté alineado correctamente */
 input[type="text"] {
-    width: 220px;
+    width: 100%; /* Asegura que el campo ocupe todo el ancho disponible */
+    max-width: 250px; /* Máximo ancho para evitar campos demasiado grandes */
 }
 
  /* Añadir_Reservas */
